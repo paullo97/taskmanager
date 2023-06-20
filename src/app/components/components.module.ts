@@ -7,11 +7,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 import { DialogCreateComponent } from './dialog-create/dialog-create.component';
 import { DialogCompleteComponent } from './dialog-complete/dialog-complete.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { DialogCompleteComponent } from './dialog-complete/dialog-complete.compo
     MatButtonModule,
     FormsModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    MatSlideToggleModule
   ],
   exports: [
     PainelComponent
