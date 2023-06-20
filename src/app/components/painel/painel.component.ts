@@ -1,16 +1,33 @@
 import { Component } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
+import { DialogDeleteComponent } from "../dialog-delete/dialog-delete.component";
+import { DialogCompleteComponent } from "../dialog-complete/dialog-complete.component";
+import { DialogCreateComponent } from "../dialog-create/dialog-create.component";
 
 @Component({
     selector: 'painel-app',
     templateUrl: './painel.component.html',
     styleUrls: ['./painel.component.scss']
 })
-export class PainelComponent
-{
-    public typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers', 'Sneakers', ];
-    itensSelecionados: string[] = [];
+export class PainelComponent {
+    public typesOfShoes: Array<string> = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers', 'Sneakers'];
+    public itensSelecionados: Array<string> = [];
 
-    public  obterItensSelecionados() {
+    constructor(public dialog: MatDialog) { }
+
+    public obterItensSelecionados(): void {
         console.log('Itens Selecionados:', this.itensSelecionados);
-      }
+    }
+
+    public deleteTasks(): void {
+        this.dialog.open(DialogDeleteComponent);
+    }
+
+    public completeTasks(): void {
+        this.dialog.open(DialogCompleteComponent);
+    }
+
+    public editCreate(): void {
+        this.dialog.open(DialogCreateComponent);
+    }
 }

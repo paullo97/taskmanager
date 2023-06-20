@@ -17,19 +17,19 @@
 
             <div class="actions">
                 <div class="group1">
-                    <button mat-fab color="primary" (click)="obterItensSelecionados()">
+                    <button mat-fab color="primary" (click)="editCreate()">
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+                    <button mat-fab color="accent" (click)="editCreate()">
                         <mat-icon>add</mat-icon>
                     </button>
                 </div>
 
                 <div class="group2">
-                    <button mat-fab color="warn" aria-label="Example icon button with a home icon">
+                    <button mat-fab color="warn" (click)="deleteTasks()">
                         <mat-icon>delete</mat-icon>
                     </button>
-                    <button mat-fab class="complete" aria-label="Example icon button with a home icon">
+                    <button mat-fab class="complete" (click)="completeTasks()">
                         <mat-icon>check</mat-icon>
                     </button>
                 </div>

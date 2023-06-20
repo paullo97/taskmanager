@@ -6,12 +6,19 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
+import { DialogCreateComponent } from './dialog-create/dialog-create.component';
+import { DialogCompleteComponent } from './dialog-complete/dialog-complete.component';
 
 @NgModule({
   declarations: [
-    PainelComponent
+    PainelComponent,
+    DialogDeleteComponent,
+    DialogCreateComponent,
+    DialogCompleteComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +27,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatIconModule,
     MatButtonModule,
     FormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   exports: [
     PainelComponent
