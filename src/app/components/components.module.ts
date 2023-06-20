@@ -13,6 +13,8 @@ import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 import { DialogCreateComponent } from './dialog-create/dialog-create.component';
 import { DialogCompleteComponent } from './dialog-complete/dialog-complete.component';
 import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import {MatInputModule} from '@angular/material/input';
     MatPaginatorModule,
     MatDialogModule,
     MatInputModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSnackBarModule
   ],
   exports: [
     PainelComponent
