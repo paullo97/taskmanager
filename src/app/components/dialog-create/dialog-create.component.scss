@@ -1,0 +1,12 @@
+.container
+{
+    min-width: 400px;
+    min-height: 400px;
+    
+    .body
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

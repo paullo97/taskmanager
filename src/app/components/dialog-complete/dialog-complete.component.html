@@ -1,1 +1,12 @@
-<p>dialog-complete works!</p>
+<div class="container">
+    <h2 mat-dialog-title>Completar as Tasks ?</h2>
+    <mat-dialog-content>
+        <p>Ao Realizar essa operação você comcluirá com as Task Selecionadas</p>
+        <p>Se quiser alterar, pode selecionar novamente ela e então ir em <i>Editar</i></p>
+    </mat-dialog-content>
+    
+    <mat-dialog-actions align="end">
+      <button mat-button color="warn" [mat-dialog-close]="false" cdkFocusInitial>Cancelar</button>
+      <button mat-button color="primary" [mat-dialog-close]="true">Completar</button>
+    </mat-dialog-actions>
+</div>
