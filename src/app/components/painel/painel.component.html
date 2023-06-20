@@ -1,0 +1,39 @@
+<div class="container">
+    <mat-card class="list-task">
+        <mat-card-header class="header">
+            <mat-card-title>Task Manager</mat-card-title>
+            <mat-card-subtitle>Lista de Tarefas</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <mat-selection-list [(ngModel)]="itensSelecionados">
+                <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
+                    {{shoe}}
+                </mat-list-option>
+            </mat-selection-list>
+
+            <mat-paginator [length]="100" [pageSize]="6" aria-label="Select page">
+            </mat-paginator>
+
+            <div class="actions">
+                <div class="group1">
+                    <button mat-fab color="primary" (click)="obterItensSelecionados()">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </div>
+
+                <div class="group2">
+                    <button mat-fab color="warn" aria-label="Example icon button with a home icon">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-fab class="complete" aria-label="Example icon button with a home icon">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
