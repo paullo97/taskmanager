@@ -10,7 +10,7 @@ import { DialogCreateComponent } from "../dialog-create/dialog-create.component"
     styleUrls: ['./painel.component.scss']
 })
 export class PainelComponent {
-    public typesOfShoes: Array<string> = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers', 'Sneakers'];
+    public typesOfShoes: Array<string> = ['Boots', 'Clogs', 'Loafers', 'Moccasins'];
     public itensSelecionados: Array<string> = [];
 
     constructor(public dialog: MatDialog) { }
@@ -27,7 +27,11 @@ export class PainelComponent {
         this.dialog.open(DialogCompleteComponent);
     }
 
-    public editCreate(): void {
-        this.dialog.open(DialogCreateComponent);
+    public editCreate(args: string = ''): void {
+        this.dialog.open(DialogCreateComponent, {
+            data: {
+                id: args
+            }
+        });
     }
 }
