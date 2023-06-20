@@ -6,18 +6,25 @@
         </mat-card-header>
 
         <mat-card-content>
-            <mat-selection-list [(ngModel)]="itensSelecionados">
-                <mat-list-option *ngFor="let task of (listTask$ | async);" [value]="task">
-                    <span matListItemTitle>{{ task.title }}</span>
-                    <span matListItemLine>{{ task.description }}</span>
-                    <span>{{ task.finish ? 'Concluido' : 'Pra Fazer'}}</span>
-                </mat-list-option>
-            </mat-selection-list>
+            <div *ngIf="((listTask$ | async) || []).length !== 0">
+                <mat-selection-list [(ngModel)]="itensSelecionados">
+                    <mat-list-option *ngFor="let task of (listTask$ | async);" [value]="task">
+                        <span matListItemTitle>{{ task.title }}</span>
+                        <span matListItemLine>{{ task.description }}</span>
+                        <span>{{ task.finish ? 'Concluido' : 'Pra Fazer'}}</span>
+                    </mat-list-option>
+                </mat-selection-list>
+    
+                <mat-paginator
+                    [length]="(listTask$ | async)?.length"
+                    [pageSize]="4">
+                </mat-paginator>
+            </div>
 
-            <mat-paginator
-                [length]="(listLength$ | async)"
-                [pageSize]="4">
-            </mat-paginator>
+            <div class="empty" *ngIf="((listTask$ | async) || []).length === 0">
+                <h1>Você esta em dia com suas Tasks</h1>
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/lady-completed-all-of-her-business-tasks-3455472-2928993.png">
+            </div>
 
             <div class="actions">
                 <div class="group1">

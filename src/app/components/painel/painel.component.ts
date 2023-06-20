@@ -5,7 +5,7 @@ import { DialogCompleteComponent } from "../dialog-complete/dialog-complete.comp
 import { DialogCreateComponent } from "../dialog-create/dialog-create.component";
 import { Store } from "@ngrx/store";
 import { TaskManagerStore } from "src/app/core/store/taskmanager/taskmanager.store";
-import { getListLength, getListTask, getLoading } from "src/app/core/store/taskmanager/taskmanager.selectors";
+import { getListTask, getLoading } from "src/app/core/store/taskmanager/taskmanager.selectors";
 import { Observable } from "rxjs";
 import { ITask } from "src/app/core/model/task.model";
 import { MatSnackBar } from "@angular/material/snack-bar";
@@ -19,7 +19,6 @@ import { completeTasks, deleteTask, editTask } from "src/app/core/store/taskmana
 export class PainelComponent {
     public loading$: Observable<boolean> = this.taskStore.select(getLoading);
     public listTask$: Observable<Array<ITask>> = this.taskStore.select(getListTask);
-    public listLength$: Observable<number> = this.taskStore.select(getListLength);
     
     public itensSelecionados: Array<ITask> = [];
 

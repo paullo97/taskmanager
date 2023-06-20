@@ -13,11 +13,6 @@ export const getLoading = createSelector(
     (store: TaskManagerStore) => store.loading
 );
 
-export const getListLength = createSelector(
-    getTaskManagerState,
-    (store: TaskManagerStore) => store.listTask.length
-);
-
 export const getEditTask = createSelector(
     getTaskManagerState,
     (store: TaskManagerStore) => store.editTask
