@@ -4,20 +4,21 @@
         <div class="body">
             <mat-form-field class="example-full-width">
                 <mat-label>Titulo</mat-label>
-                <input matInput placeholder="Ex. Criar Projeto">
+                <input matInput placeholder="Ex. Criar Projeto" [(ngModel)]="title">
               </mat-form-field>
 
               <mat-form-field class="example-full-width">
                 <mat-label>Descrição</mat-label>
-                <input matInput placeholder="Ex. Desenvolver aplicação de Task Manager">
+                <input matInput placeholder="Ex. Desenvolver aplicação de Task Manager" [(ngModel)]="description">
               </mat-form-field>
 
-              <mat-slide-toggle>Task Completa: FIX</mat-slide-toggle>
+              <mat-slide-toggle [(ngModel)]="finish">Task Completa: {{ finish ? 'Sim' : 'Não'}}</mat-slide-toggle>
         </div>
     </mat-dialog-content>
     
     <mat-dialog-actions align="end">
-      <button mat-button color="warn" [mat-dialog-close]="false" cdkFocusInitial>Cancelar</button>
-      <button mat-button color="primary" [mat-dialog-close]="true">Salvar</button>
+      <button mat-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Cancelar</button>
+      <button mat-button color="primary" (click)="saveTask()">Salvar</button>
     </mat-dialog-actions>
 </div>
+
