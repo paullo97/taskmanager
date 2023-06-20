@@ -7,22 +7,24 @@
 
         <mat-card-content>
             <mat-selection-list [(ngModel)]="itensSelecionados">
-                <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
-                    <span matListItemTitle>{{shoe}}</span>
-                    <span matListItemLine>Second line. This line will truncate.</span>
-                    <span>Status</span>
+                <mat-list-option *ngFor="let task of (listTask$ | async);" [value]="task">
+                    <span matListItemTitle>{{ task.title }}</span>
+                    <span matListItemLine>{{ task.description }}</span>
+                    <span>{{ task.finish ? 'Concluido' : 'Pra Fazer'}}</span>
                 </mat-list-option>
             </mat-selection-list>
 
-            <mat-paginator [length]="20" [pageSize]="4" aria-label="Select page">
+            <mat-paginator
+                [length]="(listLength$ | async)"
+                [pageSize]="4">
             </mat-paginator>
 
             <div class="actions">
                 <div class="group1">
-                    <button mat-fab color="primary" (click)="editCreate('123')">
+                    <button mat-fab color="primary" (click)="editTask()">
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button mat-fab color="accent" (click)="editCreate()">
+                    <button mat-fab color="accent" (click)="createTask()">
                         <mat-icon>add</mat-icon>
                     </button>
                 </div>
