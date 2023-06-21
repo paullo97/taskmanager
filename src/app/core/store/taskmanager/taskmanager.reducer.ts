@@ -1,6 +1,6 @@
 import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 import { TaskManagerStore } from './taskmanager.store';
-import { completeTasks, createTask, deleteTask, editTask } from './taskmanager.actions';
+import { completeTasks, createTask, deleteTask, editTask, editTaskSave } from './taskmanager.actions';
 
 export const initialState: Partial<TaskManagerStore> = {
     loading: false,
@@ -30,6 +30,22 @@ const reducer: ActionReducer<Partial<TaskManagerStore>, Action> = createReducer(
             {
                 return { ...task, finish: true }
             }
+            return task;
+        })
+    })),
+    on(editTaskSave, (state, action) => ({
+        ...state,
+        listTask: state.listTask?.map((task) =>
+        {
+            if(action.id === task.id)
+            {
+                return {
+                    title: action.title,
+                    description: action.description,
+                    finish: action.finish
+                }
+            }
+
             return task;
         })
     }))

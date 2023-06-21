@@ -16,6 +16,16 @@ export const editTask = createAction(
     }>()
 );
 
+export const editTaskSave = createAction(
+    `${storeTag} Edit Task Save`,
+    props<{
+        id: string;
+        title: string;
+        description: string;
+        finish: boolean;
+    }>()
+);
+
 export const deleteTask = createAction(
     `${storeTag} Delete Tasks`,
     props<{

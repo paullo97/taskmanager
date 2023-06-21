@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { ITask } from 'src/app/core/model/task.model';
-import { createTask } from 'src/app/core/store/taskmanager/taskmanager.actions';
+import { createTask, editTaskSave } from 'src/app/core/store/taskmanager/taskmanager.actions';
 import { getEditTask } from 'src/app/core/store/taskmanager/taskmanager.selectors';
 import { TaskManagerStore } from 'src/app/core/store/taskmanager/taskmanager.store';
 import { v4 as uuidv4 } from 'uuid';
@@ -66,7 +66,12 @@ export class DialogCreateComponent implements OnInit, OnDestroy{
   {
     if(this.edit)
     {
-
+      this.taskStore.dispatch(editTaskSave({
+        description: this.description,
+        finish: this.finish,
+        title: this.title,
+        id: this.idTask
+      }));
     }
     else
     {
